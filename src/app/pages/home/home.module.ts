@@ -6,4 +6,4 @@ import { HomeRoutingModule } from './home-routing.module';
   declarations: [],
   imports: [CommonModule, HomeRoutingModule],
 })
-export class LoginModule {}
+export class HomeModule {}

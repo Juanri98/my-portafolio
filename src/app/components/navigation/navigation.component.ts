@@ -14,12 +14,12 @@ export class NavigationComponent {
   links = [
     { text: 'Dev Juan Gutierrez', route: '' },
     { text: 'Inicio', route: 'home' },
-    { text: 'Acerca', route: '/componente2' },
-    { text: 'Habilidades', route: '/componente2' },
-    { text: 'Servicios', route: '/componente2' },
-    { text: 'Experiencia', route: '/componente2' },
-    { text: 'Portafolio', route: '/componente2' },
-    { text: 'Contacto', route: '/componente2' },
+    { text: 'Acerca', route: 'about' },
+    { text: 'Habilidades', route: 'skills' },
+    { text: 'Servicios', route: 'service' },
+    { text: 'Experiencia', route: 'experience' },
+    { text: 'Portafolio', route: 'projects' },
+    { text: 'Contacto', route: 'contact' },
   ];
 
   toggleMode() {
