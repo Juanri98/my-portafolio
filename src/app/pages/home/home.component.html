@@ -1,0 +1,37 @@
+<p>home works!</p>
+<!-- Add Content Here -->
+<img src="https://caminandog.com.mx/b/wp-content/uploads/2020/08/mitos-realidades-perritos-Blog03.jpg" alt=""
+width="800px">
+<h1>Prubea</h1>
+<span>PruebaS</span>
+<span>PruebaS
+<mat-slide-toggle>Prueba</mat-slide-toggle>
+</span>
+<button mat-icon-button aria-label="Example icon button with a vertical three dot icon">
+<mat-icon>palette</mat-icon>
+</button>
+<button type="button" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Paletas de Colores">
+<mat-icon>palette</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+<button mat-menu-item>
+  <mat-icon>dialpad</mat-icon>
+  <span>Orange</span>
+</button>
+<button mat-menu-item>
+  <mat-icon>voicemail</mat-icon>
+  <span>Purple</span>
+</button>
+<button mat-menu-item>
+  <mat-icon>notifications_off</mat-icon>
+  <span>Pink</span>
+</button>
+</mat-menu>
+<div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your email</mat-label>
+      <input matInput placeholder="pat@example.com" [formControl]="email" required>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+  </div>
+

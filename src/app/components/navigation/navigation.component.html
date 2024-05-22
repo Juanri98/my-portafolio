@@ -1,0 +1,23 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <div class="container-fluid" [style.color]="isDark ? textColorDark : textColorLight">
+        <div class="row m-2">
+          <nav class="col">
+            <ul class="nav d-flex flex-row justify-content-between">
+              <li *ngFor="let link of links; let first = first" [style.color]="isDark ? textColorDark : textColorLight">
+                <a [routerLink]="link.route">{{ link.text }}</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <span>
+        <button mat-button (click)="toggleMode()" [style.color]="isDark ? textColorDark : textColorLight">
+          <mat-icon>{{ isDark ? 'brightness_3' : 'wb_sunny' }}</mat-icon>
+          <span>{{ isDark ? 'Light Mode' : 'Dark Mode' }}</span>
+        </button>
+      </span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

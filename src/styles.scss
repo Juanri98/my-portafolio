@@ -1,1 +1,139 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$dark-theme-primary: mat.define-palette(mat.$indigo-palette);
+$dark-theme-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$dark-theme-warn: mat.define-palette(mat.$red-palette);
+
+$light-theme-primary: mat.define-palette(mat.$indigo-palette);
+$light-theme-accent: mat.define-palette(mat.$amber-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$light-theme-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$light-theme-theme: mat.define-light-theme((
+  color: (
+    primary: $light-theme-primary,
+    accent: $light-theme-accent,
+    warn: $light-theme-warn,
+  )
+));
+
+$dark-theme-theme: mat.define-dark-theme((
+  color: (
+    primary: $dark-theme-primary,
+    accent: $dark-theme-accent,
+    warn: $dark-theme-warn,
+  )
+));
+
+$dark-theme-orange: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$orange-palette),
+    accent:  mat.define-palette(mat.$brown-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette),
+  )
+));
+$light-theme-orange: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$orange-palette),
+    accent:  mat.define-palette(mat.$brown-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette),
+  )
+));
+
+$dark-theme-deep-purple: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$deep-purple-palette),
+    accent:  mat.define-palette(mat.$indigo-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette),
+  )
+));
+$light-theme-deep-purple: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$deep-purple-palette),
+    accent:  mat.define-palette(mat.$indigo-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette),
+  ),
+));
+$dark-theme-pink: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$pink-palette),
+    accent:  mat.define-palette(mat.$blue-grey-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette),
+  )
+));
+$light-theme-pink: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$pink-palette),
+    accent:  mat.define-palette(mat.$blue-grey-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette),
+  ),
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+// @include mat.all-component-themes($dark-theme-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.theme-light {
+  @include mat.core-theme($light-theme-theme);
+  @include mat.all-component-themes($light-theme-theme);
+}
+
+.theme-dark {
+  @include mat.core-color($dark-theme-theme);
+  @include mat.all-component-themes($dark-theme-theme);
+}
+
+.theme-light-orange {
+  @include mat.core-color($light-theme-orange);
+  @include mat.all-component-themes($light-theme-orange);
+}
+
+.theme-dark-orange {
+  @include mat.core-color($dark-theme-orange);
+  @include mat.all-component-themes($dark-theme-orange);
+}
+
+.theme-light-purple {
+  @include mat.core-color($light-theme-deep-purple);
+  @include mat.all-component-themes($light-theme-deep-purple);
+}
+
+.theme-dark-purple {
+  @include mat.core-color($dark-theme-deep-purple);
+  @include mat.all-component-themes($dark-theme-deep-purple);
+}
+.theme-light-pink {
+  @include mat.core-color($light-theme-pink);
+  @include mat.all-component-themes($light-theme-pink);
+}
+
+.theme-dark-pink {
+  @include mat.core-color($dark-theme-pink);
+  @include mat.all-component-themes($dark-theme-pink);
+}
