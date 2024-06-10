@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,7 +15,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { ColorPickerComponent } from './components/color-picker/color-picker.component';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatCardModule } from '@angular/material/card';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponent } from './pages/home/home.component';
@@ -25,9 +28,31 @@ import { ServiceComponent } from './pages/service/service.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { SkillBarComponent } from './components/skill-bar/skill-bar.component';
+import { TimelineComponent } from './components/timeline/timeline.component';
+
+import { TabViewModule } from 'primeng/tabview';
+import { TimelineModule } from 'primeng/timeline';
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
-  declarations: [AppComponent, NavigationComponent, ColorPickerComponent, HomeComponent, AboutComponent, SkillsComponent, ServiceComponent, ExperienceComponent, ProjectsComponent, ContactComponent],
+  declarations: [
+    AppComponent,
+    NavigationComponent,
+    ColorPickerComponent,
+    HomeComponent,
+    AboutComponent,
+    SkillsComponent,
+    ServiceComponent,
+    ExperienceComponent,
+    ProjectsComponent,
+    ContactComponent,
+    FooterComponent,
+    SkillBarComponent,
+    TimelineComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -43,8 +68,17 @@ import { ContactComponent } from './pages/contact/contact.component';
     MatSelectModule,
     ReactiveFormsModule,
     MatInputModule,
+    MatProgressBarModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatTabsModule,
+    TabViewModule,
+    TimelineModule,
+    CardModule,
+    ButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
