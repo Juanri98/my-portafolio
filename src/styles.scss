@@ -156,3 +156,22 @@ body {
   @include mat.core-color($dark-theme-pink);
   @include mat.all-component-themes($dark-theme-pink);
 }
+
+.content-wrapper {
+  max-width: 900px;
+  border-radius: 10px;
+}
+
+/* Ajustes responsivos */
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
