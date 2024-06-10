@@ -1,12 +1,15 @@
 <mat-sidenav-container class="fixed-top">
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <div class="container-fluid" [style.color]="isDark ? textColorDark : textColorLight">
+      <div class="container-fluid">
         <div class="row m-2">
           <nav class="col">
             <ul class="nav d-flex flex-row justify-content-between">
-              <li *ngFor="let link of links; let first = first" [style.color]="isDark ? textColorDark : textColorLight">
-                <a [routerLink]="link.route">{{ link.text }}</a>
+              <li [style.color]="isDark ? textColorDark : textColorLight">
+                <a>Dev Juan Gutierrez</a>
+              </li>
+              <li *ngFor="let link of links" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
+                <a [style.color]="isDark ? textColorDark : textColorLight" [routerLink]="link.route">{{ link.text }}</a>
               </li>
             </ul>
           </nav>
