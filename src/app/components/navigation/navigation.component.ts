@@ -17,7 +17,6 @@ export class NavigationComponent implements OnInit {
     { text: 'Inicio', route: 'home' },
     { text: 'Acerca', route: 'about' },
     { text: 'Habilidades', route: 'skills' },
-    { text: 'Servicios', route: 'service' },
     { text: 'Experiencia', route: 'experience' },
     { text: 'Portafolio', route: 'projects' },
     { text: 'Contacto', route: 'contact' },
