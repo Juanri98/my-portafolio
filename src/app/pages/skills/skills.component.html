@@ -1,1 +1,33 @@
-<p>skills works!</p>
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 text-center mb-4">
+      <h1>Mis Habilidades</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6" *ngIf="skillCategories.length > 0; else noSkills">
+      <ng-container *ngFor="let category of skillCategories; let i = index">
+        <ng-container *ngIf="i % 2 === 0">
+          <app-skill-bar [title]="category.title" [skills]="category.skills" [icon]="category.icon"></app-skill-bar>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <div class="col-md-6" *ngIf="skillCategories.length > 0; else noSkills">
+      <ng-container *ngFor="let category of skillCategories; let i = index">
+        <ng-container *ngIf="i % 2 !== 0">
+          <app-skill-bar [title]="category.title" [skills]="category.skills" [icon]="category.icon"></app-skill-bar>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #noSkills>
+    <div class="row">
+      <div class="col-12 text-center">
+        <p>No hay habilidades para mostrar</p>
+      </div>
+    </div>
+  </ng-template>
+</div>

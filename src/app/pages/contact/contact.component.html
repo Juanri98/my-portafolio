@@ -1,1 +1,67 @@
-<p>contact works!</p>
+<div class="container m-5">
+  <div class="content-grid">
+    <div class="contact-info">
+      <h2>Información de contacto</h2>
+      <p><mat-icon>chat</mat-icon> +57 317 701 07 19</p>
+      <p><mat-icon>email</mat-icon> juanri98&#64;hotmail.com</p>
+      <p><mat-icon>location_on</mat-icon> Colombia</p>
+    </div>
+    <div class="contact-form">
+      <ng-container *ngIf="!loading; else loadingSpinner">
+        <h2>Contacto</h2>
+        <div class="row">
+          <form [formGroup]="contactForm" (ngSubmit)="submitForm()">
+            <mat-form-field class="full-width col-md-12">
+              <input matInput placeholder="Nombre" formControlName="name" maxlength="50" required />
+              <mat-hint>{{ name?.value.length }} / 50</mat-hint>
+              <mat-error *ngIf="name?.hasError('required')">El nombre es requerido</mat-error>
+              <mat-error *ngIf="name?.hasError('minlength')">El nombre debe tener al menos 3 caracteres</mat-error>
+              <mat-error *ngIf="name?.hasError('maxlength')">El nombre no debe exceder los 50 caracteres</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width col-md-12">
+              <input matInput placeholder="Correo electrónico" formControlName="email" required />
+              <mat-error *ngIf="email?.hasError('required')">El correo electrónico es requerido</mat-error>
+              <mat-error *ngIf="email?.hasError('email')">Ingrese un correo electrónico válido</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width col-md-12">
+              <input matInput placeholder="Teléfono" formControlName="phone" maxlength="15" appOnlyNumbers />
+              <mat-hint>{{ phone?.value.length }} / 15</mat-hint>
+              <mat-error *ngIf="phone?.hasError('minlength')">El teléfono debe tener al menos 10 caracteres</mat-error>
+              <mat-error *ngIf="phone?.hasError('maxlength')">El teléfono no debe exceder los 15 caracteres</mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="full-width col-md-12">
+              <textarea
+                matInput
+                placeholder="Mensaje"
+                formControlName="message"
+                rows="4"
+                maxlength="500"
+                required
+              ></textarea>
+              <mat-hint>{{ message?.value.length }} / 500</mat-hint>
+              <mat-error *ngIf="message?.hasError('required')">El mensaje es requerido</mat-error>
+              <mat-error *ngIf="message?.hasError('minlength')">El mensaje debe tener al menos 10 caracteres</mat-error>
+              <mat-error *ngIf="message?.hasError('maxlength')"
+                >El mensaje no debe exceder los 500 caracteres</mat-error
+              >
+            </mat-form-field>
+
+            <div class="d-flex justify-content-center">
+              <button mat-raised-button color="primary" type="submit" [disabled]="!contactForm.valid || loading">
+                <span>Enviar</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </ng-container>
+      <ng-template #loadingSpinner>
+        <div class="spinner-container">
+          <mat-spinner diameter="50" color="primary"></mat-spinner>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

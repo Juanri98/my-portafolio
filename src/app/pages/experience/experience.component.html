@@ -1,1 +1,15 @@
-<p>experience works!</p>
+<div class="d-flex justify-content-center align-items-center m-5 p-4">
+  <div class="content-wrapper d-flex flex-column flex-md-row align-items-center p-4 shadow">
+    <mat-tab-group>
+      <mat-tab label="Laboral">
+        <app-timeline [timeline]="experiencia"></app-timeline>
+      </mat-tab>
+      <mat-tab label="Estudios">
+        <app-timeline [timeline]="estudio"></app-timeline>
+      </mat-tab>
+      <mat-tab label="Cursos">
+        <app-timeline [timeline]="cursos"></app-timeline>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

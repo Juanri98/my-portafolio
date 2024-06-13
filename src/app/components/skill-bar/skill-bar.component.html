@@ -1,0 +1,13 @@
+<mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <mat-icon class="panel-icon">{{ icon }}</mat-icon>
+      {{ title }}
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div *ngFor="let skill of skills" class="skill-details">
+    <h4>{{ skill.name }}</h4>
+    <mat-progress-bar mode="determinate" [value]="skill.percentage"></mat-progress-bar>
+    <div class="percentage">{{ skill.percentage }}%</div>
+  </div>
+</mat-expansion-panel>

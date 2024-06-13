@@ -1,25 +1,33 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ThemeStorageService {
+  private storage: Storage = localStorage; // Cambia a sessionStorage si lo prefieres
+  public storageSubject = new BehaviorSubject<string | null>(null);
+
   constructor() {}
 
   setItem(key: string, value: any) {
-    localStorage.setItem(key, JSON.stringify(value));
+    this.storage.setItem(key, JSON.stringify(value));
   }
 
   getItem(key: string) {
-    const item = localStorage.getItem(key);
-    return item ? JSON.parse(item) : null;
+    const value = this.storage.getItem(key);
+    return value ? JSON.parse(value) : null;
   }
 
   removeItem(key: string) {
-    localStorage.removeItem(key);
+    this.storage.removeItem(key);
   }
 
   clear() {
-    localStorage.clear();
+    this.storage.clear();
+  }
+
+  getStorageChanges() {
+    return this.storageSubject.asObservable();
   }
 }

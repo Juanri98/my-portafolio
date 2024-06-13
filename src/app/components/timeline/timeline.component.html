@@ -1,0 +1,15 @@
+<div *ngIf="timeline && timeline.length > 0; else noDataTemplate">
+  <p-timeline class="m-2" [value]="timeline" align="alternate" [layout]="'vertical'">
+    <ng-template pTemplate="content" let-event>
+      <div class="timeline-event-content">
+        <h4>{{ event.job }}</h4>
+        <h5>{{ event.company }}</h5>
+        <p>{{ event.country }}</p>
+        <span>{{ event.date }}</span>
+      </div>
+    </ng-template>
+  </p-timeline>
+</div>
+<ng-template #noDataTemplate>
+  <div class="m-2">No hay datos disponibles.</div>
+</ng-template>

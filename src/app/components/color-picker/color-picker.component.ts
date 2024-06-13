@@ -1,4 +1,5 @@
 import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
+import { CommonService } from 'src/app/service/common.service';
 import { ThemeStorageService } from 'src/app/service/theme-storage.service';
 
 @Component({
@@ -20,37 +21,11 @@ export class ColorPickerComponent {
 
   onPalette(theme: string) {
     this.whatTheme = theme;
-    this.modeTheme.emit(this.whatTheme);
+    this.emitChangeColor();
   }
 
-  setThemeColor(theme: string) {
-    const themeColors: { [key: string]: string } = {
-      'theme-light': '#3F51B5',
-      'theme-dark': '#3F51B5',
-      'theme-light-orange': '#FF9800',
-      'theme-dark-orange': '#FF9800',
-      'theme-light-purple': '#673AB7',
-      'theme-dark-purple': '#673AB7',
-      'theme-light-pink': '#E91E63',
-      'theme-dark-pink': '#E91E63',
-    };
-    if (theme) {
-      const color = themeColors[theme.toLowerCase()];
-      if (color) {
-        this.selectedColor = color;
-      } else {
-        console.error('Tema no válido');
-      }
-    }
-  }
-
-  constructor(private themeStorageService: ThemeStorageService) {
-    this.setThemeColor(this.themeStorageService.getItem('themeAngular'));
-  }
-
-  getSecondWordFromTheme(theme: string): string {
-    const themeParts = theme.split('-');
-    return themeParts.length > 1 ? themeParts[1] : '';
+  constructor(private themeStorageService: ThemeStorageService, private commonService: CommonService) {
+    this.selectedColor = this.commonService.setThemeColor(this.themeStorageService.getItem('themeAngular'));
   }
 
   toggleColors(): void {
@@ -61,6 +36,11 @@ export class ColorPickerComponent {
     this.selectedColor = color.hexa;
     this.showColors = false;
     this.whatTheme = color.name;
+    this.emitChangeColor();
+  }
+
+  emitChangeColor() {
+    this.themeStorageService.storageSubject.next(this.selectedColor);
     this.modeTheme.emit(this.whatTheme);
   }
 }
