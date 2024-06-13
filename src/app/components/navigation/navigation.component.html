@@ -2,12 +2,33 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <div class="container-fluid">
-        <div class="row m-2">
-          <nav class="col">
+        <div class="row m-2 align-items-center">
+          <div class="col-auto d-lg-none">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+
+          <div class="col-auto">
+            <a class="d-none d-lg-inline" [style.color]="isDark ? textColorDark : textColorLight">Dev Juan Gutierrez</a>
+            <a class="d-lg-none" [style.color]="isDark ? textColorDark : textColorLight">DJG</a>
+          </div>
+
+          <mat-menu #menu="matMenu" class="d-lg-none">
+            <ng-container *ngFor="let link of links">
+              <button
+                mat-menu-item
+                routerLinkActive="active-link"
+                [routerLinkActiveOptions]="{ exact: true }"
+                [routerLink]="link.route"
+              >
+                <span [style.color]="isDark ? textColorDark : textColorLight">{{ link.text }}</span>
+              </button>
+            </ng-container>
+          </mat-menu>
+
+          <nav class="col d-none d-lg-flex">
             <ul class="nav d-flex flex-row justify-content-between">
-              <li [style.color]="isDark ? textColorDark : textColorLight">
-                <a>Dev Juan Gutierrez</a>
-              </li>
               <li *ngFor="let link of links" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }">
                 <a [style.color]="isDark ? textColorDark : textColorLight" [routerLink]="link.route">{{ link.text }}</a>
               </li>
@@ -15,10 +36,12 @@
           </nav>
         </div>
       </div>
-      <span>
-        <button mat-button (click)="toggleMode()" [style.color]="isDark ? textColorDark : textColorLight">
-          <mat-icon>{{ isDark ? 'brightness_3' : 'wb_sunny' }}</mat-icon>
-          <span>{{ isDark ? 'Light Mode' : 'Dark Mode' }}</span>
+
+      <span class="ml-auto">
+        <button mat-icon-button (click)="toggleMode()">
+          <mat-icon [style.color]="isDark ? textColorDark : textColorLight">{{
+            isDark ? 'brightness_3' : 'wb_sunny'
+          }}</mat-icon>
         </button>
       </span>
     </mat-toolbar>

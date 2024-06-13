@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   enlaces: Enlace[] = [
     { ruta: 'home', texto: 'Inicio' },
     { ruta: 'about', texto: 'Sobre Nosotros' },
-    { ruta: 'service', texto: 'Servicios' },
+    { ruta: 'skills', texto: 'Habilidades' },
     { ruta: 'contact', texto: 'Contacto' },
   ];
 
@@ -43,5 +43,6 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   seleccionarEnlace(ruta: string) {
     this.themeStorageService.setItem('rutaSeleccionada', ruta);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

@@ -12,7 +12,7 @@ export class SkillsComponent {
       icon: 'code',
       skills: [
         { name: 'HTML & CSS', percentage: 90 },
-        { name: 'JavaScript', percentage: 85 },
+        { name: 'JavaScript', percentage: 90 },
         { name: 'Angular', percentage: 80 },
         { name: 'Vue.js', percentage: 70 },
       ],
@@ -21,20 +21,20 @@ export class SkillsComponent {
       title: 'Back-End',
       icon: 'storage',
       skills: [
-        { name: 'Node.js', percentage: 75 },
+        { name: 'Node.js', percentage: 80 },
         { name: 'Python', percentage: 70 },
-        { name: 'Java', percentage: 65 },
-        { name: 'Spring Boot', percentage: 60 },
-        { name: '.NET', percentage: 55 },
+        { name: 'Java', percentage: 75 },
+        { name: 'Spring Boot', percentage: 75 },
+        { name: '.NET', percentage: 60 },
       ],
     },
     {
       title: 'Android Development',
       icon: 'android',
       skills: [
-        { name: 'Kotlin', percentage: 80 },
+        { name: 'Kotlin', percentage: 70 },
         { name: 'Android Studio', percentage: 75 },
-        { name: 'React Native', percentage: 70 },
+        { name: 'React Native', percentage: 80 },
       ],
     },
     {
@@ -42,10 +42,10 @@ export class SkillsComponent {
       icon: 'build',
       skills: [
         { name: 'Docker', percentage: 75 },
-        { name: 'GitHub Pages', percentage: 70 },
-        { name: 'SQL & Databases', percentage: 80 },
-        { name: 'MongoDB', percentage: 65 },
-        { name: 'OracleDB', percentage: 60 },
+        { name: 'GitHub Pages', percentage: 90 },
+        { name: 'SQL & Databases', percentage: 85 },
+        { name: 'MongoDB', percentage: 75 },
+        { name: 'OracleDB', percentage: 70 },
       ],
     },
   ];
