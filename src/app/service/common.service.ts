@@ -25,4 +25,12 @@ export class CommonService {
       return 'Tema no válido';
     }
   }
+
+  extractThemeType(theme: string): string {
+    const themeParts = theme.split('-');
+    if (themeParts.length >= 2) {
+      return themeParts[1];
+    }
+    return '';
+  }
 }

@@ -25,23 +25,25 @@
               class="text-dark"
               aria-label="LinkedIn"
             >
-              <i class="fab fa-linkedin fa-3x" matTooltip="LinkedIn"></i>
+              <i
+                class="fab fa-linkedin fa-3x"
+                [ngStyle]="{ color: themeType ? 'white' : 'black' }"
+                matTooltip="LinkedIn"
+              ></i>
             </a>
           </div>
           <div class="col-md-4">
-            <a href="https://github.com/Juanri98" target="_blank" class="text-dark" aria-label="GitHub">
-              <i class="fa fa-github fa-3x" aria-hidden="true"></i>
+            <a href="https://github.com/Juanri98" target="_blank" aria-label="GitHub">
+              <i [ngStyle]="{ color: themeType ? 'white' : 'black' }" class="fa fa-github fa-3x" aria-hidden="true"></i>
             </a>
           </div>
           <div class="col-md-4">
-            <a matTooltip="Descargar CV" href="../../../assets/cv.pdf" class="text-dark" download>
-              <i class="fa-solid fa-sheet-plastic fa-3x"></i>
+            <a matTooltip="Descargar CV" href="../../../assets/cv.pdf" download>
+              <i [ngStyle]="{ color: themeType ? 'white' : 'black' }" class="fa-solid fa-sheet-plastic fa-3x"></i>
             </a>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Iconos con tooltips -->
   </div>
 </div>
