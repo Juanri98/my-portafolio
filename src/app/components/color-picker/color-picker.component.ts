@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonService } from 'src/app/service/common.service';
 import { ThemeStorageService } from 'src/app/service/theme-storage.service';
 
@@ -7,7 +7,7 @@ import { ThemeStorageService } from 'src/app/service/theme-storage.service';
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss'],
 })
-export class ColorPickerComponent {
+export class ColorPickerComponent implements OnInit {
   selectedColor: string = '';
   showColors: boolean = false;
   colors: { name: string; hexa: string }[] = [
@@ -24,7 +24,8 @@ export class ColorPickerComponent {
     this.emitChangeColor();
   }
 
-  constructor(private themeStorageService: ThemeStorageService, private commonService: CommonService) {
+  constructor(private themeStorageService: ThemeStorageService, private commonService: CommonService) {}
+  ngOnInit(): void {
     this.selectedColor = this.commonService.setThemeColor(this.themeStorageService.getItem('themeAngular'));
   }
 

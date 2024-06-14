@@ -17,10 +17,12 @@ const routes: Routes = [
     path: 'skills',
     loadChildren: () => import('./pages/skills/skills.module').then((m) => m.SkillsModule),
   },
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirigir raíz a home
+  { path: '**', redirectTo: '/home' }, // Redirigir cualquier ruta desconocida a home
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { useHash: true })], // Añadir useHash: true
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

@@ -18,11 +18,10 @@ export class FooterComponent implements OnInit, OnDestroy {
 
   themeValue: any;
   storageSubscription: Subscription | undefined;
-  constructor(private themeStorageService: ThemeStorageService, private commonService: CommonService) {
-    this.themeValue = this.commonService.setThemeColor(this.themeStorageService.getItem('themeAngular'));
-  }
+  constructor(private themeStorageService: ThemeStorageService, private commonService: CommonService) {}
 
   ngOnInit(): void {
+    this.themeValue = this.commonService.setThemeColor(this.themeStorageService.getItem('themeAngular'));
     const rutaSeleccionada = this.themeStorageService.getItem('rutaSeleccionada');
     if (rutaSeleccionada) {
       this.seleccionarEnlace(rutaSeleccionada);

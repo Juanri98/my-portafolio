@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { ThemeStorageService } from 'src/app/service/theme-storage.service';
 
 @Component({
   selector: 'app-navigation',
@@ -25,9 +26,11 @@ export class NavigationComponent implements OnInit {
   toggleMode() {
     this.isDark = !this.isDark;
     this.darkModeSwitched.emit(this.isDark);
+    const theme = this.isDark ? 'dark' : 'light';
+    this.themeStorageService.storageSubject.next(theme);
   }
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private themeStorageService: ThemeStorageService) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.currentRoute = event.url;
